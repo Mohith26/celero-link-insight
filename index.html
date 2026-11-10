@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link Insight · Celero Fleet Console (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="tb-left">
+    <a class="brand" href="#" aria-label="Celero"><img src="assets/logo.svg" alt="Celero"></a>
+    <span class="tb-divider"></span>
+    <span class="tb-product">Fleet Console</span>
+  </div>
+  <nav class="tb-nav" aria-label="Primary">
+    <a href="#">Overview</a>
+    <a href="#">Links</a>
+    <a href="#" class="active">Insight <span class="pill-new">New</span></a>
+    <a href="#">Maintenance</a>
+    <a href="#">Firmware</a>
+  </nav>
+  <div class="tb-right">
+    <span class="tb-meta" id="tbMeta"></span>
+    <button class="btn-contact" id="btnExport" type="button">Export report</button>
+  </div>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div><div class="hero-stars" aria-hidden="true"></div>
+    <div class="crumbs">Fleet <span>/</span> Campus A + DC-East <span>/</span> Link Insight</div>
+    <div class="hero-row">
+      <div>
+        <h1>Link Insight</h1>
+        <p class="lede">Every coherent link reports its own noise budget. Link Insight splits each link's lost margin into causes (received power, laser phase noise, polarization transients, heat, module) and turns the trend into a calibrated probability of a flap in the next 7 days.</p>
+      </div>
+      <div class="hero-ctl">
+        <div class="seg" role="tablist" aria-label="Horizon">
+          <button class="on" type="button">7-day horizon</button>
+        </div>
+        <div class="asof" id="asOf"></div>
+      </div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="grid g-top">
+    <div class="card" id="mapCard">
+      <div class="card-h">
+        <div><h2>Fleet topology</h2><p class="sub">Bundles colored by the highest flap probability on any link in the bundle</p></div>
+        <div class="legend" id="mapLegend"></div>
+      </div>
+      <svg id="map" viewBox="50 30 690 330" role="img" aria-label="Fleet topology"></svg>
+      <div class="cls-strip" id="clsStrip"></div>
+    </div>
+    <div class="card" id="riskCard">
+      <div class="card-h">
+        <div><h2>At-risk links</h2><p class="sub" id="riskSub"></p></div>
+        <label class="toggle"><input type="checkbox" id="reveal"> <span>Reveal next 7 days</span></label>
+      </div>
+      <div class="tbl-wrap"><table class="tbl" id="riskTbl"></table></div>
+    </div>
+  </section>
+
+  <section class="card detail" id="detail"></section>
+
+  <section class="grid g-bt">
+    <div class="card">
+      <div class="card-h"><div><h2>Calibration</h2><p class="sub" id="relSub"></p></div></div>
+      <svg id="rel" viewBox="0 0 420 300" role="img" aria-label="Reliability diagram"></svg>
+      <p class="note" id="relNote"></p>
+    </div>
+    <div class="card">
+      <div class="card-h"><div><h2>Alert load vs. a static margin alarm</h2><p class="sub">Held-out days 41 to 52. Each point is one alert threshold.</p></div></div>
+      <svg id="eff" viewBox="0 0 420 300" role="img" aria-label="Alert efficiency"></svg>
+      <p class="note" id="effNote"></p>
+    </div>
+    <div class="card">
+      <div class="card-h"><div><h2>Fleet-fit noise budget</h2><p class="sub">Coefficients fitted across all 480 links by non-negative least squares</p></div></div>
+      <table class="tbl coef" id="coef"></table>
+      <p class="note" id="coefNote"></p>
+      <div class="diag-h">Degraded links by diagnosed cause, today</div>
+      <div class="diag" id="diag"></div>
+    </div>
+  </section>
+
+  <section class="card" id="planCard">
+    <div class="card-h">
+      <div><h2>Maintenance window planner</h2><p class="sub">Picks the fixes that remove the most expected flap-cost within one technician shift (0/1 knapsack, scale-across links weighted 3x)</p></div>
+      <div class="slider"><label for="budget">Shift budget</label><input type="range" id="budget" min="30" max="360" step="15" value="120"><output id="budgetOut"></output></div>
+    </div>
+    <div class="plan" id="plan"></div>
+  </section>
+
+  <footer class="foot">Unofficial concept demo by Mohith Gajjela. Not affiliated with Celero Communications. Synthetic data from a seeded simulator with an illustrative noise model.</footer>
+</main>
+<div class="tip" id="tip" role="tooltip"></div>
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>

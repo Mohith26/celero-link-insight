@@ -1,0 +1,177 @@
+{
+  "seed": 20260911,
+  "links": 480,
+  "snrRequiredDb": 13.549,
+  "theta": [
+    0.9969042387966587,
+    0.000011503871186308121,
+    2.131189585799792e-8,
+    0.0002072426206032094
+  ],
+  "model": {
+    "RX_K": 31,
+    "C_PN": 0.000012,
+    "C_SOP": 2.2e-8,
+    "C_T": 0.0016
+  },
+  "hazard": {
+    "campus": 0.0001743679163034002,
+    "scale-across": 0.015586546349466776,
+    "row": 0.0007886435331230284
+  },
+  "calibrationWindows": 9587,
+  "backtest": {
+    "windows": 5736,
+    "flaps": 85,
+    "expected": 84.8,
+    "brier": 0.007790454672287013,
+    "skill": 0.46637415276970073,
+    "ece": 0.003674656938944036,
+    "auroc": 0.9631069982408111,
+    "bins": [
+      {
+        "lo": 0,
+        "hi": 0.02,
+        "n": 5065,
+        "pred": 0.004142776061383339,
+        "obs": 0.002566633761105627
+      },
+      {
+        "lo": 0.02,
+        "hi": 0.1,
+        "n": 604,
+        "pred": 0.029152300114522942,
+        "obs": 0.0347682119205298
+      },
+      {
+        "lo": 0.1,
+        "hi": 0.3,
+        "n": 15,
+        "pred": 0.15050701666905647,
+        "obs": 0.4666666666666667
+      },
+      {
+        "lo": 0.3,
+        "hi": 0.6,
+        "n": 8,
+        "pred": 0.4051533862391538,
+        "obs": 0.625
+      },
+      {
+        "lo": 0.6,
+        "hi": 0.9,
+        "n": 12,
+        "pred": 0.7710725887796798,
+        "obs": 0.8333333333333334
+      },
+      {
+        "lo": 0.9,
+        "hi": 1.0000001,
+        "n": 32,
+        "pred": 0.9829488789172959,
+        "obs": 0.90625
+      }
+    ]
+  },
+  "alerts": {
+    "model_p30": [
+      52,
+      44
+    ],
+    "margin_lt_2dB": [
+      228,
+      43
+    ],
+    "margin_lt_1dB": [
+      57,
+      34
+    ]
+  },
+  "lead": {
+    "episodes": 25,
+    "modelWarned": 16,
+    "ruleWarned": 13,
+    "medModel": 5.166666666666664,
+    "medRule": 2.5,
+    "earlier": 10
+  },
+  "rootCause": {
+    "diagnosed": 44,
+    "correct": 44
+  },
+  "today": {
+    "day": 52,
+    "atRisk": 6,
+    "expectedFlaps7d": 7.94
+  },
+  "plan360": {
+    "picks": [
+      {
+        "link": "DH1-DH2-001",
+        "cause": "laser",
+        "minutes": 30,
+        "p": 0.799
+      },
+      {
+        "link": "DH1-DH4-137",
+        "cause": "sop",
+        "minutes": 60,
+        "p": 0.684
+      },
+      {
+        "link": "DH1-EAST-312",
+        "cause": "contamination",
+        "minutes": 20,
+        "p": 0.244
+      },
+      {
+        "link": "DH1-EAST-317",
+        "cause": "contamination",
+        "minutes": 20,
+        "p": 0.431
+      },
+      {
+        "link": "DH2-EAST-341",
+        "cause": "contamination",
+        "minutes": 20,
+        "p": 0.994
+      },
+      {
+        "link": "DH3-EAST-362",
+        "cause": "bend",
+        "minutes": 45,
+        "p": 0.056
+      },
+      {
+        "link": "DH3-EAST-367",
+        "cause": "sop",
+        "minutes": 60,
+        "p": 0.116
+      },
+      {
+        "link": "DH3-EAST-370",
+        "cause": "contamination",
+        "minutes": 20,
+        "p": 0.972
+      },
+      {
+        "link": "DH3-EAST-373",
+        "cause": "laser",
+        "minutes": 30,
+        "p": 0.126
+      },
+      {
+        "link": "DH4-EAST-384",
+        "cause": "contamination",
+        "minutes": 20,
+        "p": 0.06
+      },
+      {
+        "link": "DH4-EAST-403",
+        "cause": "contamination",
+        "minutes": 20,
+        "p": 0.357
+      }
+    ]
+  }
+}
