@@ -61,7 +61,7 @@ and the P ≥ 30% alert set stays several times smaller than the 2 dB alarm for 
 ## Tests
 
 ```
-node --test test/
+node --test
 ```
 
 11 tests: BER curve and FEC threshold, erfc accuracy, deterministic seeding, NNLS recovers the generating coefficients,
